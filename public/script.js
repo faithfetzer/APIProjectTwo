@@ -13,6 +13,7 @@ let solSelection = document.querySelector("#solSelection");
 let cameraSelected;
 let solSelected;
 let roverName;
+let maxSol;
 let resultsDisplayed = document.querySelector('.results');
 let secondForm = document.getElementById('form2');
 // secondForm.style.display = 'none';
@@ -47,7 +48,7 @@ async function fetchCameras(e) {
         // console.log(cameraName);
     }
 }
-    let maxSol = await responseInfo.rover.max_sol;
+    maxSol = await responseInfo.rover.max_sol;
     let firstEarthDate = await responseInfo.rover.landing_date;
     let maxEarthDate = await responseInfo.rover.max_date;
     solSelection.innerHTML = `<label for="solEntry">Choose a sol (day on Mars since the rover has landed)<br>Sol 0 (Earth Date ${firstEarthDate}) to ${maxSol} (Earth Date ${maxEarthDate}):</label>
@@ -73,8 +74,8 @@ async function fetchImages(e) {
       }
     cameraSelected = document.getElementById("cameraSelection").value;
     solSelected = document.getElementById("solEntry").value;
-    console.log(cameraSelected);
-    console.log(solSelected);
+    // console.log(cameraSelected);
+    // console.log(solSelected);
     if(roverName === ""){
         resultsDisplayed.innerHTML = `Please select a rover`;
         document.querySelector("#resultsHeader").innerHTML = ``;}
@@ -98,8 +99,10 @@ async function fetchImages(e) {
     let imageResponseInfo = await imageResponse.json();
     console.log(imageResponseInfo);
     let photoList = imageResponseInfo.photos;
-    
-    if(photoList.length === 0){
+    if (solSelected> maxSol) {
+        document.querySelector("#resultsHeader").innerHTML = ``;
+        resultsDisplayed.innerHTML = `There are no photos from camera ${cameraSelected} on rover ${roverName} from sol ${solSelected}.<br>That sol number is higher than the maximum available for this rover: ${maxSol}.<br> Please enter a valid sol.`;
+    } else if(photoList.length === 0){
         document.querySelector("#resultsHeader").innerHTML = ``;
         resultsDisplayed.innerHTML = `There are no photos from camera ${cameraSelected} on rover ${roverName} from sol ${solSelected}.<br> Please make another selection.`;
     } else {

@@ -11,6 +11,9 @@
 <body>
 
 <h1 class="container justify-content-center">Mars Rover Photos</h1>
+<div class="container introInfo">
+    <p>Select a rover name, a camera from that rover, and a <a href="https://en.wikipedia.org/wiki/Sol_(day_on_Mars)" target="blank">sol</a> to view the photos taken that meet that criteria.</p>
+</div>
 <div class="container input">
 <form id="form1">
     <label for="roverName">Select a Rover:</label>
@@ -29,7 +32,7 @@
     <select class="form-control" id="cameraSelection" name="cameraSelection"><option value="">Select A Camera</option></select>
     <div id="solSelection">
     <label for="solEntry">Choose a sol (day on Mars since the rover has landed):</label>
-    <input class="form-control" type="number" id="solEntry" name="solEntry">
+    <input class="form-control" type="number" id="solEntry" name="solEntry" min="0">
     </div>
     <button type="submit" id="secondSubmit" form="form2">Submit</button>
 </form>
@@ -41,7 +44,7 @@
     <div class="row results justify-content-center">
     </div>
 </div>
-
+<footer><a href="https://github.com/chrisccerami/mars-photo-api" target="_blank">Source API Documentation</a>&nbsp&nbsp&nbsp<a href="https://api.nasa.gov/" target="_blank">NASA APIs</a></footer>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="/__/firebase/8.6.1/firebase-app.js"></script>
 
