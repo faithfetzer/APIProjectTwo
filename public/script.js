@@ -102,6 +102,9 @@ async function fetchImages(e) {
     if (solSelected> maxSol) {
         document.querySelector("#resultsHeader").innerHTML = ``;
         resultsDisplayed.innerHTML = `There are no photos from camera ${cameraSelected} on rover ${roverName} from sol ${solSelected}.<br>That sol number is higher than the maximum available for this rover: ${maxSol}.<br> Please enter a valid sol.`;
+    } else if (solSelected< 0) {
+        document.querySelector("#resultsHeader").innerHTML = ``;
+        resultsDisplayed.innerHTML = `There are no photos from camera ${cameraSelected} on rover ${roverName} from sol ${solSelected}.<br>The lowest sol that can be viewed is 0 (the first day the rover landed).<br> Please enter a valid sol.`;
     } else if(photoList.length === 0){
         document.querySelector("#resultsHeader").innerHTML = ``;
         resultsDisplayed.innerHTML = `There are no photos from camera ${cameraSelected} on rover ${roverName} from sol ${solSelected}.<br> Please make another selection.`;
