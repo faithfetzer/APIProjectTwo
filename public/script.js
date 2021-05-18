@@ -1,4 +1,4 @@
-const baseURL = "https://api.nasa.gov/mars-photos/api/v1/rovers/"
+const baseURL = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
 const api_key="ULctjVgrZvQan7OgvbRM6sm3nfsDujl6wWBjaXW4";
 let roverURL;
 
@@ -119,7 +119,7 @@ async function fetchImages(e) {
             document.querySelector(".results").innerHTML += ` <div class="col outputImage"><img src="${imageSRC}" alt="${imageAlt}" class="img-thumbnail"><br><a href="${imageSRC}" target="_blank">open full size in new tab</a></div>
             <div class="w-100"></div>`;}
         else {
-                document.querySelector(".results").innerHTML += ` <div class="col outputImage"><img src="${imageSRC}" alt="${imageAlt}" class="img-thumbnail"><br><a href="${imageSRC}" target="_blank">open full size in new tab</a></div>`
+                document.querySelector(".results").innerHTML += ` <div class="col outputImage"><img src="${imageSRC}" alt="${imageAlt}" class="img-thumbnail"><br><a href="${imageSRC}" target="_blank">open full size in new tab</a></div>`;
             }
         // if(j < 3){
         // document.querySelector("#firstRow").innerHTML += `<img src="${imageSRC}" alt="${imageAlt}" class="img-thumbnail">`;
