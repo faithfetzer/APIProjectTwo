@@ -9,10 +9,12 @@
     <title>API Project Two</title>
 </head>
 <body>
-<h1>Mars Rover Photos</h1>
+
+<h1 class="container justify-content-center">Mars Rover Photos</h1>
+<div class="container input">
 <form id="form1">
     <label for="roverName">Select a Rover:</label>
-    <select id="roverName" name="roverName">
+    <select class="form-control" id="roverName" name="roverName">
         <option value="">Select A Rover</option>
         <option value="Curiosity">Curiosity</option>
         <option value="Spirit">Spirit</option>
@@ -22,13 +24,19 @@
     <!-- <button type="submit" id="firstSubmit" form="form1">Submit</button> -->
 </form>
 <form id="form2">
-    <div id="roverCameraSelection"></div>
-    <div id="solSelection"></div>
+    <label for="cameraSelection">Select a Camera:</label>
+    
+    <select class="form-control" id="cameraSelection" name="cameraSelection"><option value="">Select A Camera</option></select>
+    <div id="solSelection">
+    <label for="solEntry">Choose a sol (day on Mars) since the rover has landed:</label>
+    <input class="form-control" type="number" id="solEntry" name="solEntry">
+    </div>
     <button type="submit" id="secondSubmit" form="form2">Submit</button>
 </form>
-<div class="container">
-    <h2 id="resultsHeader"></h2>
-    <div class="row results">
+</div>
+<div class="container output">
+    <h2 id="resultsHeader" class="row"></h2>
+    <div class="row results justify-content-center">
     </div>
 </div>
 
