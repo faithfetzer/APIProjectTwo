@@ -13,20 +13,23 @@
 <form id="form1">
     <label for="roverName">Select a Rover:</label>
     <select id="roverName" name="roverName">
+        <option value="">Select A Rover</option>
         <option value="Curiosity">Curiosity</option>
         <option value="Spirit">Spirit</option>
         <option value="Opportunity">Opportunity</option>
         <option value="Perseverance">Perseverance</option>
     </select>
-    <button type="submit" id="firstSubmit" form="form1">Submit</button>
+    <!-- <button type="submit" id="firstSubmit" form="form1">Submit</button> -->
 </form>
 <form id="form2">
     <div id="roverCameraSelection"></div>
     <div id="solSelection"></div>
     <button type="submit" id="secondSubmit" form="form2">Submit</button>
 </form>
-<div class="results">
-
+<div class="container">
+    <h2 id="resultsHeader"></h2>
+    <div class="row results">
+    </div>
 </div>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
