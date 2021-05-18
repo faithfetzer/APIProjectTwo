@@ -14,7 +14,7 @@ let cameraSelected;
 let solSelected;
 let roverName;
 let resultsDisplayed = document.querySelector('.results');
-// document.getElementById('secondSubmit').style.display = 'none';
+// document.querySelector('.output').style.display = 'none';
 let secondForm = document.getElementById('form2');
 // secondForm.style.display = 'none';
 
@@ -35,6 +35,7 @@ async function fetchCameras(e) {
     console.log(responseInfo);
     let cameraList = responseInfo.rover.cameras;
     let innerList = document.querySelector("#cameraSelection");
+    // document.querySelector('.output').style.display = 'initial';
     if(roverName === ""){
         resultsDisplayed.innerHTML = `Please select a rover`;
         document.querySelector("#resultsHeader").innerHTML = ``;
@@ -50,7 +51,7 @@ async function fetchCameras(e) {
     let maxSol = await responseInfo.rover.max_sol;
     let firstEarthDate = await responseInfo.rover.landing_date;
     let maxEarthDate = await responseInfo.rover.max_date;
-    solSelection.innerHTML = `<label for="solEntry">Choose a sol (day on Mars) since the rover has landed<br>Sol 0 (Earth Date ${firstEarthDate}) to ${maxSol} (Earth Date ${maxEarthDate}):</label>
+    solSelection.innerHTML = `<label for="solEntry">Choose a sol (day on Mars since the rover has landed)<br>Sol 0 (Earth Date ${firstEarthDate}) to ${maxSol} (Earth Date ${maxEarthDate}):</label>
     <input class="form-control" type="number" id="solEntry" name="solEntry" min="0" max="${maxSol}">`;
     // document.getElementById('secondSubmit').style.display = "initial";
     // document.getElementById('firstSubmit').style.display = "none";
