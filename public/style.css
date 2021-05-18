@@ -10,7 +10,7 @@ h1 {
     width: 100vw;
     padding: 50px 0px;
     border-radius: 8px;
-    margin-bottom: 15px;
+    margin: 15px 0px;
 }
 
 .input {
@@ -41,8 +41,17 @@ h1 {
 
 .results{
     text-align: center;
-    padding: 15px 0px;
+    padding-bottom: 20px;
     font-size: 20px;
+    margin: 15px 0px;
+}
+
+#noInput{
+    padding-bottom: 0px;
+    margin-bottom: 5px;
+}
+.outputImage {
+    margin: 5px 3px;
 }
 
 a {

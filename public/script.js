@@ -14,7 +14,6 @@ let cameraSelected;
 let solSelected;
 let roverName;
 let resultsDisplayed = document.querySelector('.results');
-// document.querySelector('.output').style.display = 'none';
 let secondForm = document.getElementById('form2');
 // secondForm.style.display = 'none';
 
@@ -111,10 +110,10 @@ async function fetchImages(e) {
         let imageAlt = `${roverName} ${cameraInfo} sol: ${solSelected} Earth Date: ${earthDate}`
         document.querySelector("#resultsHeader").innerHTML = `<div class="col">Rover: ${roverName}</div><div class="col">Sol: ${solSelected}</div><div class="w-100"></div><div class="col">Camera: ${cameraInfo}</div><div class="col">Earth Date: ${earthDate}</div>`;
         if((j+1)%4 === 0){
-            document.querySelector(".results").innerHTML += ` <div class="col"><img src="${imageSRC}" alt="${imageAlt}" class="img-thumbnail"><a href="${imageSRC}" target="_blank">open full size in new tab</a></div>
+            document.querySelector(".results").innerHTML += ` <div class="col outputImage"><img src="${imageSRC}" alt="${imageAlt}" class="img-thumbnail"><br><a href="${imageSRC}" target="_blank">open full size in new tab</a></div>
             <div class="w-100"></div>`;}
         else {
-                document.querySelector(".results").innerHTML += ` <div class="col"><img src="${imageSRC}" alt="${imageAlt}" class="img-thumbnail"><a href="${imageSRC}" target="_blank">open full size in new tab</a></div>`
+                document.querySelector(".results").innerHTML += ` <div class="col outputImage"><img src="${imageSRC}" alt="${imageAlt}" class="img-thumbnail"><br><a href="${imageSRC}" target="_blank">open full size in new tab</a></div>`
             }
         // if(j < 3){
         // document.querySelector("#firstRow").innerHTML += `<img src="${imageSRC}" alt="${imageAlt}" class="img-thumbnail">`;
