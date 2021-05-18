@@ -2,20 +2,20 @@ const baseURL = "https://api.nasa.gov/mars-photos/api/v1/rovers/"
 const api_key="ULctjVgrZvQan7OgvbRM6sm3nfsDujl6wWBjaXW4";
 let roverURL;
 
-// let roverName = document.querySelector("#roverName").value;
 // console.log(roverName);
-const submitOne = document.querySelector("#firstSubmit");
+const submitOne = document.getElementById("firstSubmit");
 submitOne.addEventListener("click", fetchCameras);
 const submitTwo = document.querySelector("#secondSubmit");
-// submitTwo.addEventListener("click", fetchDates);
-// const submitThree = document.querySelector("#thirdSubmit");
-// submitThree.addEventListener("click", fetchImages);
 let roverCameraList = document.querySelector("#roverCameraSelection");
-let dateSelection = document.querySelector("#earthDateSelection");
+let solSelection = document.querySelector("#solSelection");
+let cameraSelected;
+let solSelected;
+let roverName;
+document.getElementById('secondSubmit').style.display = 'none';
 
 async function fetchCameras(e) {
     e.preventDefault();
-    let roverName = document.querySelector("#roverName").value;
+    roverName = document.querySelector("#roverName").value;
     // console.log(roverName);
     roverURL = `${baseURL}${roverName}/?api_key=${api_key}`;
     console.log(roverURL);
@@ -27,22 +27,43 @@ async function fetchCameras(e) {
     console.log(responseInfo);
     let cameraList = responseInfo.rover.cameras;
     roverCameraList.innerHTML = `<label for="cameraSelection">Select a Camera:</label>
-    <select id="cameraSelection" name="cameraSelection"></select>
-    <button id="secondSubmit">Submit</button>`;
+    <select id="cameraSelection" name="cameraSelection"></select>`;
     let innerList = document.querySelector("#cameraSelection");
-    for(i=0; i<= cameraList.length; i++){
+    for(i=0; i< cameraList.length; i++){
         let cameraName = cameraList[i].full_name;
         let cameraValue = cameraList[i].name;
         innerList.innerHTML += `<option value="${cameraValue}">${cameraName}</option>`
         console.log(cameraValue);
         console.log(cameraName);
     }
+    let maxSol = responseInfo.rover.max_sol;
+    solSelection.innerHTML = `<label for="solEntry">Choose a sol (day on Mars) since the rover has landed from 0 to ${maxSol}:<label><input type="number" id="solEntry" name="solEntry" min="0" max="${maxSol} ">`;
+    submitTwo.addEventListener("click", fetchImages);
 }
 
-async function fetchDates() {
-    console.log("fetch dates");
-}
+// cameraSelected = await document.getElementById("#cameraSelection").value;
+// solSelected = await document.getElementById("#solEntry").value;
+// console.log(roverCameraList, solSelection)
+// console.log(solSelected);
 
-async function fetchDates() {
+// let cameraSelected = document.getElementById("#cameraSelection").value;
+// let solSelected = document.getElementById("#solEntry").value;
+//     // return cameraSelected;
+    // return solSelected;
+
+// console.log(solSelected);
+// console.log(cameraSelection);
+// const submitTwo = document.querySelector("#secondSubmit");
+
+submitTwo.addEventListener("click", fetchImages);
+// console.log(cameraSelection);
+
+
+async function fetchImages(e) {
+    e.preventDefault();
     console.log("fetch images");
+    cameraSelected = document.getElementById("#cameraSelection").value;
+    solSelected = document.getElementById("#solEntry").value;
+    console.log(roverCameraList, solSelection)
+    console.log(solSelected);
 }

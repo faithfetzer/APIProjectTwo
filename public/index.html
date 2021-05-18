@@ -10,7 +10,7 @@
 </head>
 <body>
 <h1>Mars Rover Photos</h1>
-<form>
+<form id="form1">
     <label for="roverName">Select a Rover:</label>
     <select id="roverName" name="roverName">
         <option value="Curiosity">Curiosity</option>
@@ -18,10 +18,16 @@
         <option value="Opportunity">Opportunity</option>
         <option value="Perseverance">Perseverance</option>
     </select>
-    <button id="firstSubmit">Submit</button>
-    <div id="roverCameraSelection"></div>
-    <div id="earthDateSelection"></div>
+    <button type="submit" id="firstSubmit" form="form1">Submit</button>
 </form>
+<form id="form2">
+    <div id="roverCameraSelection"></div>
+    <div id="solSelection"></div>
+    <button type="submit" id="secondSubmit" form="form2">Submit</button>
+</form>
+<div class="results">
+
+</div>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="/__/firebase/8.6.1/firebase-app.js"></script>
