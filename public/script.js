@@ -121,26 +121,9 @@ async function fetchImages(e) {
         else {
                 document.querySelector(".results").innerHTML += ` <div class="col outputImage"><img src="${imageSRC}" alt="${imageAlt}" class="img-thumbnail"><br><a href="${imageSRC}" target="_blank">open full size in new tab</a></div>`;
             }
-        // if(j < 3){
-        // document.querySelector("#firstRow").innerHTML += `<img src="${imageSRC}" alt="${imageAlt}" class="img-thumbnail">`;
-        // } else if (j <6 ) {
-        //     document.getElementById('secondRow').innerHTML += `<img src="${imageSRC}" alt="${imageAlt}">`;
-        // } else if (j <9 ) {
-        //     document.getElementById('thirdRow').innerHTML += `<img src="${imageSRC}" alt="${imageAlt}">`;
-        // } else {
-        //     document.getElementById('fourthRow').innerHTML += `<img src="${imageSRC}" alt="${imageAlt}">`;
-        //     }
+        
         }
         }
     }
 }
 
-// submitTwoCamera.addEventListener("change", fetchImages);
-// submitTwoSol.addEventListener("change", fetchImages);
-// submitOne.addEventListener("change", fetchImages);
-// if((j+1)%4 === 0){
-
-// document.querySelector("#results").innerHTML += ` <div class="w-100"><img src="${imageSRC}" alt="${imageAlt}" class="img-thumbnail"></div>`;}
-// else {
-//     document.querySelector("#results").innerHTML += ` <div class="col"><img src="${imageSRC}" alt="${imageAlt}" class="img-thumbnail"></div>`
-// }
